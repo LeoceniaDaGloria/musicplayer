@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">musicplayer</string>
+
+            <string name="album_cover">Capa do álbum</string>
+
+
+        <string name="favorite_icon_description">Ícone de estrela para marcar como favorito</string>
+
+            </resources>

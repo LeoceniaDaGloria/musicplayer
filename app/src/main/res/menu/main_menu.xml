@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Item de busca (mostrado na Toolbar como ícone de lupa) -->
+    <item
+        android:id="@+id/action_search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Buscar"
+        app:showAsAction="collapseActionView|ifRoom"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+
+    <!-- Item de Favoritas (no menu overflow) -->
+    <item
+        android:id="@+id/action_favoritas"
+        android:title="Favoritas"
+        app:showAsAction="never" />
+
+    <!-- Item de Descarregadas (no menu overflow) -->
+    <item
+        android:id="@+id/action_descarregadas"
+        android:title="Descarregadas"
+        app:showAsAction="never" />
+
+    <!-- Item de Artistas (no menu overflow) -->
+    <item
+        android:id="@+id/action_artistas"
+        android:title="Artistas"
+        app:showAsAction="never" />
+
+    <!-- Item de Reconhecer Música (no menu overflow) -->
+    <item
+        android:id="@+id/action_recognize"
+        android:title="Reconhecer Música"
+        app:showAsAction="never" />
+
+    <!-- Item de Criar Playlist (no menu overflow) -->
+    <item
+        android:id="@+id/action_create_playlist"
+        android:title="Criar Playlist"
+        app:showAsAction="never" />
+</menu>

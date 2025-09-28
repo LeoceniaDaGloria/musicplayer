@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212">
+
+    <!-- Layout principal com orientação vertical -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Toolbar para título do aplicativo e navegação -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:title="@string/app_name"
+            app:title="Music  Player"
+            android:titleTextColor="#FFFFFF" />
+
+        <!-- ScrollView para gerenciar conteúdo que pode exceder a tela -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center_horizontal">
+
+                <!-- Imagem da capa do álbum com placeholder e fundo circular -->
+                <ImageView
+                    android:id="@+id/album_cover"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@string/album_cover"
+                    android:src="@drawable/ic_lm_capa_placeholder"
+                    android:background="@drawable/circle_background"
+                    android:padding="12dp" />
+
+                <!-- Texto do título da música -->
+                <TextView
+                    android:id="@+id/song_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Imagine"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="16dp" />
+
+                <!-- Texto do nome do artista -->
+                <TextView
+                    android:id="@+id/artist_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="John Lennon"
+                    android:textSize="18sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="8dp" />
+
+                <!-- SeekBar para progresso da música -->
+                <SeekBar
+                    android:id="@+id/song_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:progressTint="#FFFFFF"
+                    android:thumbTint="#FFFFFF" />
+
+                <!-- Layout para tempo atual e total da música -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:id="@+id/tv_tempo_atual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        tools:text="00:00" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/tv_duracao_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        tools:text="00:00" />
+                </LinearLayout>
+
+                <!-- Layout para controles de reprodução -->
+                <LinearLayout
+                    android:id="@+id/controlLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="32dp">
+
+                    <ImageButton
+                        android:id="@+id/shuffleButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/ic_shuffle"
+                        android:contentDescription="Embaralhar"
+                        android:scaleType="fitCenter" />
+
+                    <ImageButton
+                        android:id="@+id/prevButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/ic_skip_previous"
+                        android:contentDescription="Música anterior"
+                        android:scaleType="fitCenter" />
+
+                    <ImageButton
+                        android:id="@+id/playPauseButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/ic_play_arrow"
+                        android:contentDescription="Tocar/Pausar"
+                        android:scaleType="fitCenter" />
+
+                    <ImageButton
+                        android:id="@+id/nextButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="16dp"
+                        android:src="@drawable/ic_skip_next"
+                        android:contentDescription="Próxima música"
+                        android:scaleType="fitCenter" />
+
+                    <ImageButton
+                        android:id="@+id/repeatButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="16dp"
+                        android:src="@drawable/ic_repeat"
+                        android:contentDescription="Repetir"
+                        android:scaleType="fitCenter" />
+                </LinearLayout>
+
+                <!-- Barra de pesquisa para filtrar músicas e playlists -->
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:queryHint="Buscar músicas ou playlists..." />
+
+
+                <!-- Título da seção de músicas -->
+                <TextView
+                    android:id="@+id/songsTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Músicas"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="32dp" />
+
+                <!-- RecyclerView para exibir lista de músicas -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewSongs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="#121212"
+                    android:nestedScrollingEnabled="false"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/list_item_musica" />
+
+                <!-- Título da seção de playlists -->
+                <TextView
+                    android:id="@+id/playlistsTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Playlists"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="32dp" />
+
+                <!-- RecyclerView para exibir lista de playlists -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewPlaylists"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="#121212"
+                    android:nestedScrollingEnabled="false"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_playlist" />
+
+                <!-- Layout para botões de agendamento de playback e atualizações -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp">
+
+                    <Button
+                        android:id="@+id/scheduleAlarmButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Agendar Playback"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginEnd="16dp" />
+
+                    <Button
+                        android:id="@+id/scheduleUpdateButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Agendar Atualização"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
