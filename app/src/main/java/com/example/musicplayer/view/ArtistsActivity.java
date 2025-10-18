@@ -384,7 +384,7 @@ public class ArtistsActivity extends AppCompatActivity implements MusicView, Mus
     }
 
     // ============================================================
-    // NOVO MÉTODO: updateAlbumArt - REQUERIDO PELA INTERFACE MusicView
+    // updateAlbumArt - REQUERIDO PELA INTERFACE MusicView
     // ============================================================
 
     @Override

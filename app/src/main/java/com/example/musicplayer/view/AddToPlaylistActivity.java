@@ -39,7 +39,7 @@ public class AddToPlaylistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_to_playlist);
 
-        // ✅ VERIFICAÇÃO DE SEGURANÇA DO ID
+        // VERIFICAÇÃO DE SEGURANÇA DO ID
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra("playlist_id")) {
             playlistId = intent.getIntExtra("playlist_id", -1);
@@ -65,25 +65,25 @@ public class AddToPlaylistActivity extends AppCompatActivity {
     }
 
     private void setupViews() {
-        // ✅ CONFIGURAR TOOLBAR MANUALMENTE
+        //  CONFIGURAR TOOLBAR MANUALMENTE
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Adicionar Músicas");
         toolbar.setNavigationIcon(R.drawable.ic_chevron_right);
         toolbar.setNavigationOnClickListener(v -> finish());
 
-        // ✅ CONFIGURAR VIEWS
+        //  CONFIGURAR VIEWS
         recyclerView = findViewById(R.id.recycler_view_songs);
         emptyText = findViewById(R.id.empty_text);
         tvSelectedCount = findViewById(R.id.tv_selected_count);
         btnAddSelected = findViewById(R.id.btn_add_selected);
 
-        // ✅ CONFIGURAR ADAPTER DE SELEÇÃO
+        //  CONFIGURAR ADAPTER DE SELEÇÃO
         adapter = new SongSelectionAdapter(this, new ArrayList<>());
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // ✅ CONFIGURAR LISTENER DE SELEÇÃO
+        //  CONFIGURAR LISTENER DE SELEÇÃO
         adapter.setSelectionListener(selectedSongs -> {
             updateSelectedCount(selectedSongs.size());
         });
@@ -117,12 +117,12 @@ public class AddToPlaylistActivity extends AppCompatActivity {
 
             @Override
             public void onSongAddedToPlaylist() {
-                // ✅ EXECUTAR NA UI THREAD
+                //  EXECUTAR NA UI THREAD
                 runOnUiThread(() -> {
                     Toast.makeText(AddToPlaylistActivity.this,
                             "Músicas adicionadas com sucesso!", Toast.LENGTH_SHORT).show();
 
-                    // ✅ RETORNAR RESULTADO DE SUCESSO
+                    //  RETORNAR RESULTADO DE SUCESSO
                     Intent resultIntent = new Intent();
                     setResult(RESULT_OK, resultIntent);
                     finish();
@@ -136,7 +136,7 @@ public class AddToPlaylistActivity extends AppCompatActivity {
 
             @Override
             public void showError(String message) {
-                // ✅ EXECUTAR NA UI THREAD
+                //  EXECUTAR NA UI THREAD
                 runOnUiThread(() -> {
                     Toast.makeText(AddToPlaylistActivity.this, message, Toast.LENGTH_SHORT).show();
                 });
@@ -145,7 +145,7 @@ public class AddToPlaylistActivity extends AppCompatActivity {
             @Override
             public void showLoading() {
                 runOnUiThread(() -> {
-                    // ✅ MOSTRAR LOADING SE NECESSÁRIO
+                    //  MOSTRAR LOADING SE NECESSÁRIO
                     // findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
                 });
             }
@@ -153,7 +153,7 @@ public class AddToPlaylistActivity extends AppCompatActivity {
             @Override
             public void hideLoading() {
                 runOnUiThread(() -> {
-                    // ✅ OCULTAR LOADING SE NECESSÁRIO
+
                     // findViewById(R.id.progressBar).setVisibility(View.GONE);
                 });
             }

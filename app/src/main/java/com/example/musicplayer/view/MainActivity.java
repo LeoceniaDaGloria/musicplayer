@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements MusicView, MusicP
         super.onPause();
         Log.d(TAG, "⏸️ MainActivity onPause");
 
-        // ✅ APENAS PAUSAR ANIMAÇÃO, NÃO REMOVER LISTENER
+        // ✅ APENAS PAUSAR ANIMAÇÃO
         pauseAlbumRotation();
     }
 

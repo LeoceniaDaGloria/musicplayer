@@ -84,7 +84,7 @@ public class ReconhecerMusicaActivity extends AppCompatActivity implements com.e
             onBackPressed();
         });
 
-        // ✅ CORREÇÃO: CONFIGURAR O BOTÃO VOLTAR DO LAYOUT
+        // CONFIGURAR O BOTÃO VOLTAR DO LAYOUT
         btnBack = findViewById(R.id.btn_back);
         if (btnBack != null) {
             btnBack.setOnClickListener(v -> {

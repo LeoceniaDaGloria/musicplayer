@@ -170,13 +170,13 @@ public class DescarregadasActivity extends AppCompatActivity implements MusicVie
 
             Log.d(TAG, "Aplicando cores dinâmicas ao menu - Cor: " + Integer.toHexString(menuIconColor));
 
-            // Aplicar cor a todos os itens do menu com ícones
+            // Aplicando cor a todos os itens do menu com ícones
             for (int i = 0; i < menu.size(); i++) {
                 MenuItem item = menu.getItem(i);
 
                 // Aplicar cor ao ícone se existir
                 if (item.getIcon() != null) {
-                    // Método 1: Usar setColorFilter (funciona bem)
+                    // Método 1: Usa setColorFilter (funciona bem)
                     item.getIcon().setColorFilter(menuIconColor, android.graphics.PorterDuff.Mode.SRC_IN);
 
                     // Método 2: Alternativa usando tint (Android 8.0+)
@@ -334,7 +334,7 @@ public class DescarregadasActivity extends AppCompatActivity implements MusicVie
     }
 
     // ============================================================
-    // NOVO MÉTODO: updateAlbumArt - REQUERIDO PELA INTERFACE MusicView
+    //  updateAlbumArt - REQUERIDO PELA INTERFACE MusicView
     // ============================================================
 
     @Override
@@ -350,7 +350,7 @@ public class DescarregadasActivity extends AppCompatActivity implements MusicVie
 
     @Override
     public void updateSongList(List<Song> songs) {
-        // ✅ CORREÇÃO: Usando as duas interfaces separadas com lambda
+        //  Usando as duas interfaces separadas com lambda
         adapter = new SongAdapter(
                 this, // Context
                 songs, // List<Song>

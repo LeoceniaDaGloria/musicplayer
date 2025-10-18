@@ -141,13 +141,13 @@ public class PlaylistDetailsActivity extends AppCompatActivity implements
         presenter.loadPlaylistSongs(playlistId);
     }
 
-    // ✅ CORREÇÃO: Implementação do OnSongClickListener
+    //  Implementação do OnSongClickListener
     @Override
     public void onSongClick(Song song) {
         playSong(song, false);
     }
 
-    // ✅ CORREÇÃO: Implementação do OnFavoriteClickListener
+    //  Implementação do OnFavoriteClickListener
     @Override
     public void onFavoriteClick(Song song) {
         // Toggle favorite
@@ -266,7 +266,7 @@ public class PlaylistDetailsActivity extends AppCompatActivity implements
         }
     }
 
-// ✅ SUBSTITUA ESTES MÉTODOS NO PlaylistDetailsActivity:
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -294,7 +294,7 @@ public class PlaylistDetailsActivity extends AppCompatActivity implements
     }
 
     private void deletePlaylist() {
-        // ✅ CORREÇÃO: Use MaterialAlertDialogBuilder (recomendado)
+        // Use MaterialAlertDialogBuilder (recomendado)
         new com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
                 .setTitle("Excluir Playlist")
                 .setMessage("Tem certeza que deseja excluir esta playlist?")
@@ -303,7 +303,7 @@ public class PlaylistDetailsActivity extends AppCompatActivity implements
                 .show();
     }
 
-    // ✅ CORREÇÃO: Implementações do OnSongMenuListener
+    // Implementações do OnSongMenuListener
     @Override
     public void onSongDetails(Song song) {
         Toast.makeText(this, "Detalhes: " + song.getTitle(), Toast.LENGTH_SHORT).show();
@@ -397,12 +397,11 @@ public class PlaylistDetailsActivity extends AppCompatActivity implements
 
     @Override
     public void showLoading() {
-        // Implementar loading se necessário
     }
 
     @Override
     public void hideLoading() {
-        // Implementar loading se necessário
+
     }
 
 }

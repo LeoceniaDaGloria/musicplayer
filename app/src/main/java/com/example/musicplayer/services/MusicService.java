@@ -75,14 +75,14 @@ public class MusicService extends Service {
     private Handler progressHandler = new Handler();
     private Runnable progressUpdateRunnable;
 
-    // ✅ CORREÇÃO: Controle para evitar loop e garantir transição automática
+    // Controle para evitar loop e garantir transição automática
     private boolean isProcessingTransition = false;
     private boolean isAutoTransitionEnabled = true;
 
     private final IBinder binder = new MusicBinder();
 
     // ============================================================
-    // ✅ INTERFACE PARA CONTROLE DE TRANSIÇÃO AUTOMÁTICA
+    // INTERFACE PARA CONTROLE DE TRANSIÇÃO AUTOMÁTICA
     // ============================================================
 
     public interface OnPlaybackStateChangedListener {
@@ -175,7 +175,7 @@ public class MusicService extends Service {
 
         super.onTaskRemoved(rootIntent);
     }
-    // ✅ NO MusicService.java - Adicione este método público:
+
 
     @Override
     public void onDestroy() {
@@ -348,14 +348,14 @@ public class MusicService extends Service {
         }
     }
 
-    // ✅ CORREÇÃO CRÍTICA: Configurar modo de repetição para permitir transição automática
+    // Configurar modo de repetição para permitir transição automática
     private void updatePlayerRepeatMode() {
         if (player != null) {
             if (isRepeatMode) {
                 player.setRepeatMode(Player.REPEAT_MODE_ONE);
                 Log.d(TAG, "Modo repeat: REPEAT_ONE (repetir mesma música)");
             } else {
-                // ✅ CORREÇÃO: Usar REPEAT_MODE_ALL para transição automática entre músicas
+                // Usar REPEAT_MODE_ALL para transição automática entre músicas
                 player.setRepeatMode(Player.REPEAT_MODE_ALL);
                 Log.d(TAG, "Modo repeat: REPEAT_ALL (transição automática entre músicas)");
             }
@@ -538,7 +538,7 @@ public class MusicService extends Service {
     }
 
     // ============================================================
-    // ✅ CORREÇÃO: CONTROLES DE REPRODUÇÃO COM TRANSIÇÃO AUTOMÁTICA
+    // CONTROLES DE REPRODUÇÃO COM TRANSIÇÃO AUTOMÁTICA
     // ============================================================
 
     public void playSong(Song song) {
@@ -557,7 +557,7 @@ public class MusicService extends Service {
 
             MediaItem mediaItem = MediaItem.fromUri(song.getPath());
 
-            // ✅ CORREÇÃO: Se temos uma playlist, configurar TODAS as músicas
+            //Se temos uma playlist, configurar TODAS as músicas
             if (playlist != null && !playlist.isEmpty()) {
                 player.clearMediaItems();
 
@@ -704,7 +704,7 @@ public class MusicService extends Service {
         }
     }
 
-    // ✅ CORREÇÃO CRÍTICA: Método para lidar com o término da reprodução
+    //  Método para lidar com o término da reprodução
     private void handlePlaybackEnded() {
         Log.d(TAG, "handlePlaybackEnded - Repeat: " + isRepeatMode + ", Shuffle: " + isShuffleMode);
 
