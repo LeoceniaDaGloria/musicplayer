@@ -77,7 +77,7 @@ public class MusicRepository {
     }
 
     /**
-     * ✅ FALTA: Atualiza contagem automaticamente
+     *  Atualiza contagem automaticamente
      */
     private void updatePlaylistSongCount(long playlistId) {
         try {
@@ -105,7 +105,7 @@ public class MusicRepository {
     }
 
     /**
-     * ✅ FALTA: Remove música com objeto Song
+     * Remove música com objeto Song
      */
     public void removeSongFromPlaylist(long playlistId, Song song) {
         Executors.newSingleThreadExecutor().execute(() -> {
@@ -373,7 +373,7 @@ public class MusicRepository {
     }
 
     /**
-     * NOVO: Formata o nome do arquivo raw para exibição
+     * Formata o nome do arquivo raw para exibição
      */
     private String formatRawFileName(String fileName) {
         // Remove números no final (como musica1, musica2) e formata
@@ -437,7 +437,7 @@ public class MusicRepository {
     }
 
     /**
-     *  Método para pré-extrair metadados COM DEBUG
+     *  Metodo para pré-extrair metadados COM DEBUG
      */
     private void extractMetadataForSongs(List<Song> songs, Context context) {
         new Thread(() -> {
@@ -538,7 +538,7 @@ public class MusicRepository {
     }
 
     /**
-     * NOVO: Retorna músicas descarregadas como LiveData.
+     * Retorna músicas descarregadas como LiveData.
      */
     public LiveData<List<Song>> getDownloadedSongs() {
         return songDao.getDownloadedSongs();
@@ -720,9 +720,6 @@ public class MusicRepository {
         return hasLoadedInitialData;
     }
 
-    // ============================================================
-    // MÉTODOS NOVOS ADICIONADOS PARA O MUSICPRESENTER
-    // ============================================================
 
     /**
      * Atualiza uma música no banco de dados
@@ -882,7 +879,7 @@ public class MusicRepository {
     }
 
     /**
-     * NOVO: Verifica se há músicas no storage
+     *  Verifica se há músicas no storage
      */
     public boolean hasStorageMusic(Context context) {
         String permission = Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU ?
