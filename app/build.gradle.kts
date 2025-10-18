@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -37,6 +38,7 @@ android {
 }
 
 dependencies {
+    // Bibliotecas existentes
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -44,6 +46,7 @@ dependencies {
     implementation(libs.room.runtime)
     annotationProcessor(libs.room.compiler)
     implementation(libs.lifecycle.viewmodel)
+    implementation(libs.lifecycle.livedata)
     implementation(libs.exoplayer)
     implementation(libs.media)
     implementation(libs.glide)
@@ -52,16 +55,15 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("androidx.lifecycle:lifecycle-livedata:2.7.0")
-    implementation("com.google.android.exoplayer:exoplayer:2.18.7")
-    implementation("androidx.work:work-runtime:2.8.1")
-    // Dependência do ACRCloud SDK como arquivo local
-    implementation(files("libs/acrcloud-universal-sdk-1.3.30.jar"))
-    // Dependências adicionais para HTTP/JSON
-    implementation("com.squareup.okhttp3:okhttp:4.10.0")
-    implementation("com.google.code.gson:gson:2.8.9")
+    implementation(libs.work.runtime)
+    implementation(libs.okhttp)
+    implementation(libs.gson)
+    implementation(files("libs/acrcloud-universal-sdk-1.3.30.jar")) // Configuração local do ACRCloud
 
-    dependencies {
-        implementation ("androidx.recyclerview:recyclerview:1.3.2") // Versão mais recente
-    }
-   }
+    // Firebase Dependencies (usando BOM)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.messaging)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.auth)
+}

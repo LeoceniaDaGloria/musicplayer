@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+        <!-- ========== CORES BASE ========== -->
+        <color name="black">#FF000000</color>
+        <color name="white">#FFFFFFFF</color>
+
+        <!-- ========== SUAS CORES PRINCIPAIS ========== -->
+        <color name="colorPrimary">#0A4E83</color>
+        <color name="colorPrimaryDark">#083A63</color>
+        <color name="colorAccent">#FF6D00</color>
+
+
+                <!-- ========== CORES PARA MODO CLARO ========== -->
+                <color name="background_light">#FFFFFF</color>
+                <color name="surface_light">#F5F5F5</color>
+                <color name="on_surface_light">#FF000000</color>  <!-- ✅ TEXTO PRETO no modo claro -->
+                <color name="on_surface_variant_light">#FF666666</color>
+
+                <!-- ========== CORES PARA MODO ESCURO ========== -->
+                <color name="background_dark">#121212</color>
+                <color name="surface_dark">#1E1E1E</color>
+                <color name="on_surface_dark">#FFFFFFFF</color>  <!-- ✅ TEXTO BRANCO no modo escuro -->
+                <color name="on_surface_variant_dark">#FFAAAAAA</color>
+
+
+        <color name="purple_500">#FF6200EE</color>
+
+        <color name="purple_200">#FFBB86FC</color>
+
+        <color name="purple_700">#FF3700B3</color>
+        <color name="teal_200">#FF03DAC5</color>
+        <color name="teal_700">#FF018786</color>
+
+
+        <!-- ✅ CORES PARA O MENU -->
+        <color name="gray_dark">#FF424242</color>
+        <color name="gray_menu_background">#FF2D2D2D</color>
+        <color name="gray_menu_text">#FFFFFFFF</color>
+
+<!--cor dos icones no modo claro -->
+        <color name="icon_color">#FF000000</color> <!-- Preto -->
+        <color name="favorite_color">#FFFFD700</color> <!-- Amarelo -->
+        <color name="text_primary">#FF000000</color> <!-- Preto -->
+
+        <color name="text_primary_light">#FF000000</color> <!-- Preto -->
+        <color name="text_secondary_light">#FF666666</color> <!-- Cinza escuro -->
+        <color name="icon_primary_light">#FF000000</color> <!-- Preto -->
+        <color name="favorite_light">#C11C84</color> <!-- Amarelo -->
+
+        <color name="gray">#FF424242</color>
+        <color name="text_primary_dark">#FFFFFFFF</color>
+        <color name="text_secondary_dark">#D3D3D3</color>
+        <color name="favorite_dark">#C11C84</color>
+        <color name="icon_primary_dark">#FFFFFFFF</color>
+
+        <color name="shazam_circle_light">#FF000000</color>
+        <color name="shazam_circle_dark">#FFFFFFFF</color>
+
+
+
 </resources>

@@ -2,39 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    android:padding="4dp">
+    android:padding="4dp"
+    android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/song_title"
+    <ImageView
+        android:id="@+id/album_cover_list_item"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_lm_capa_placeholder"
+        android:background="@drawable/circle_background"
+        android:layout_marginEnd="8dp" />
+
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textSize="16sp"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="2dp" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/song_artist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="#AAAAAA"
-        android:layout_marginBottom="2dp" />
+        <TextView
+            android:id="@+id/song_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:text="Título da Música" />
+
+        <TextView
+            android:id="@+id/song_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#AAAAAA"
+            android:text="Nome do Artista" />
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/favorite_star"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_star_outline"
-         />
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_star_outline" />
 
+    <!-- Adicione isto perto dos outros botões -->
     <ImageView
-        android:id="@+id/favorito_star"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_star"
-        />
+        android:id="@+id/menu_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_more_vert"
+        android:padding="4dp"
+        android:contentDescription="Opções" />
+
 
 
 </LinearLayout>

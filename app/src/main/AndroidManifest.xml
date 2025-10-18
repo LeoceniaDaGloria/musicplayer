@@ -1,20 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.musicplayer">
 
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+
+    <!-- Para usar a câmera -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/parede"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/parede_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MusicPlayerMVP">
+
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
@@ -23,13 +46,54 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".view.DescarregadasActivity" />
         <activity android:name=".view.FavoritasActivity" />
-        <activity android:name=".view.CriarPlaylistActivity" />
         <activity android:name=".view.ReconhecerMusicaActivity" />
+        <activity android:name=".view.MusicPlayerActivity"
+            android:configChanges="uiMode|orientation|screenSize"
+            android:exported="false"/>
+
+        <activity android:name=".view.ArtistsActivity" />
+        <activity
+            android:name=".view.PlaylistsActivity"
+            android:label="Playlists"
+            android:theme="@style/Theme.MusicPlayerMVP"/>
+        <activity
+            android:name=".view.PlaylistDetailsActivity"
+            android:label="Playlist"
+            android:theme="@style/Theme.MusicPlayerMVP"/>
+
+        <activity
+            android:name=".view.AddToPlaylistActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <service
             android:name=".services.MusicService"
             android:enabled="true"
-            android:exported="false" />
+            android:exported="false"
+            android:stopWithTask="false"
+            android:foregroundServiceType="mediaPlayback">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </service>
+
+
+
+        <receiver
+            android:name=".services.MusicReceiver"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BROADCAST_NOT_EXPORTED">
+            <intent-filter>
+                <action android:name="ACTION_PLAY_PAUSE" />
+                <action android:name="ACTION_PREV" />
+                <action android:name="ACTION_NEXT" />
+                <action android:name="ACTION_STOP" />
+            </intent-filter>
+        </receiver>
+
     </application>
 </manifest>

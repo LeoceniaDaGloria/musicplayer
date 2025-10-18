@@ -5,6 +5,15 @@
     android:orientation="vertical"
     android:padding="8dp">
 
+
+    <ImageView
+        android:id="@+id/artist_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_lm_capa_placeholder"
+        android:background="@drawable/circle_background"/>
+
     <TextView
         android:id="@+id/artist_name"
         android:layout_width="match_parent"

@@ -1,32 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
 
+    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary" />
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:title="@string/app_name"
+        app:title="Music Player"
+        android:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/ic_chevron_right"/>
 
-    <ImageView
-        android:id="@+id/album_cover"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_launcher_foreground" />
-
-    <RecyclerView
-        android:id="@+id/recycler_view_artists"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <RecyclerView
+    <!-- Apenas a lista de músicas -->
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_songs"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent"
+        android:background="?android:attr/colorBackground"
+        tools:listitem="@layout/list_item_musica"/>
+
+    <!-- Mensagem quando não há músicas -->
+    <TextView
+        android:id="@+id/txt_sem_musicas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Nenhuma música encontrada no dispositivo"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:visibility="gone" />
 
 </LinearLayout>

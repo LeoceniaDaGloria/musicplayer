@@ -31,6 +31,21 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.ViewHo
         this.listener = listener;
     }
 
+    /**
+     * NOVO: Atualiza a lista de playlists
+     */
+    public void setPlaylists(List<Playlist> playlists) {
+        this.playlists = playlists;
+        notifyDataSetChanged();
+    }
+
+    /**
+     * NOVO: Obtém a lista atual de playlists
+     */
+    public List<Playlist> getPlaylists() {
+        return playlists;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,13 +59,19 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.ViewHo
         // Vincula os dados da playlist ao ViewHolder
         Playlist playlist = playlists.get(position);
         holder.name.setText(playlist.getName());
-        holder.itemView.setOnClickListener(v -> listener.onPlaylistClick(playlist));
+
+        //  Clique no item da playlist
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onPlaylistClick(playlist);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         // Retorna o número de playlists na lista
-        return playlists.size();
+        return playlists != null ? playlists.size() : 0;
     }
 
     /**

@@ -10,6 +10,7 @@
         app:showAsAction="collapseActionView|ifRoom"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
+
     <!-- Item de Favoritas (no menu overflow) -->
     <item
         android:id="@+id/action_favoritas"
@@ -34,9 +35,10 @@
         android:title="Reconhecer Música"
         app:showAsAction="never" />
 
-    <!-- Item de Criar Playlist (no menu overflow) -->
+    <!-- Item de Playlist (no menu overflow) -->
     <item
-        android:id="@+id/action_create_playlist"
-        android:title="Criar Playlist"
+        android:id="@+id/action_playlists"
+        android:title="Playlists"
         app:showAsAction="never" />
+
 </menu>

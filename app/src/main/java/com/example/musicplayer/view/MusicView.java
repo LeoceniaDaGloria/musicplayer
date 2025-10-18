@@ -1,5 +1,7 @@
 package com.example.musicplayer.view;
 
+import android.graphics.Bitmap;
+
 import com.example.musicplayer.model.Playlist;
 import com.example.musicplayer.model.Song;
 
@@ -10,12 +12,16 @@ import java.util.List;
  * Define métodos para atualizar UI e ações do usuário.
  */
 public interface MusicView {
+
+
     /**
      * Atualiza título e artista na UI.
      * @param title Título.
      * @param artist Artista.
      */
     void updateSongInfo(String title, String artist);
+
+
 
     /**
      * Atualiza ícone de play/pause.
@@ -60,6 +66,7 @@ public interface MusicView {
     void nextSong();
     void toggleShuffle();
     void toggleRepeat();
+
     /**
      * Move o progresso da reprodução para a posição especificada.
      * @param progress Progresso em milissegundos (deve ser validado contra duration pelo Presenter).
@@ -74,4 +81,7 @@ public interface MusicView {
     // Método para carregar músicas de playlist
     void loadPlaylistSongs(Playlist playlist);
     void updateArtists(List<String> artists);
+
+    // NOVO: Método para atualizar capa do álbum
+    void updateAlbumArt(android.graphics.Bitmap albumArt);
 }

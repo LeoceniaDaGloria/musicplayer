@@ -1,7 +1,61 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Musicplayer" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TEMA PRINCIPAL - MODO ESCURO -->
+    <style name="Theme.MusicPlayerMVP" parent="Base.Theme.MusicPlayerMVP">
+        <!-- FUNDO ESCURO -->
+        <item name="android:windowBackground">@color/background_dark</item>
+        <item name="android:colorBackground">@color/background_dark</item>
+
+        <!-- TEXTOS CLAROS -->
+        <item name="android:textColorPrimary">@color/on_surface_dark</item>
+        <item name="android:textColorSecondary">@color/on_surface_variant_dark</item>
+
+        <!-- MENU COM TEXTO VISÍVEL -->
+        <item name="actionMenuTextColor">@color/on_surface_dark</item>
+        <item name="android:actionMenuTextColor">@color/on_surface_dark</item>
+
+        <!-- Popup menu com fundo escuro e texto claro -->
+        <item name="popupMenuStyle">@style/PopupMenuDark</item>
+
+        <!-- ✅ APLICAR ESTILO AOS DIÁLOGOS para modo escuro -->
+        <item name="android:dialogTheme">@style/MyDialogThemeDark</item>
+        <item name="android:alertDialogTheme">@style/MyAlertDialogThemeDark</item>
+        <item name="materialAlertDialogTheme">@style/MyAlertDialogThemeDark</item>
+
+        <!-- Toolbar -->
+        <item name="android:statusBarColor">@color/background_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- ESTILO PARA MENU POPUP ESCURO -->
+    <style name="PopupMenuDark" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:background">@color/surface_dark</item>
+        <item name="android:textColor">@color/on_surface_dark</item>
+        <item name="android:popupBackground">@color/surface_dark</item>
+        <item name="android:itemBackground">@color/surface_dark</item>
+    </style>
+
+    <!-- ✅ ESTILOS DE DIÁLOGO PARA MODO ESCURO -->
+    <style name="MyDialogThemeDark" parent="ThemeOverlay.Material3.Dialog">
+        <item name="android:windowBackground">@color/surface_dark</item>
+        <item name="android:background">@color/surface_dark</item>
+        <item name="android:textColorPrimary">@color/on_surface_dark</item>
+        <item name="android:textColor">@color/on_surface_dark</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+    </style>
+
+    <style name="MyAlertDialogThemeDark" parent="ThemeOverlay.Material3.Dialog.Alert">
+        <item name="android:windowBackground">@color/surface_dark</item>
+        <item name="android:background">@color/surface_dark</item>
+        <item name="android:textColorPrimary">@color/on_surface_dark</item>
+        <item name="android:textColor">@color/on_surface_dark</item>
+        <item name="buttonBarButtonStyle">@style/MyDialogButtonStyleDark</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+    </style>
+
+    <style name="MyDialogButtonStyleDark" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 </resources>

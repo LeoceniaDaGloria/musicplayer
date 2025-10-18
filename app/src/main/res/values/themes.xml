@@ -1,9 +1,72 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Musicplayer" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!-- TEMA BASE -->
+    <style name="Base.Theme.MusicPlayerMVP" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- CORES PRINCIPAIS -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Toolbar -->
+        <item name="android:windowLightStatusBar">true</item> <!-- true no modo claro -->
     </style>
 
-    <style name="Theme.Musicplayer" parent="Base.Theme.Musicplayer" />
+    <!-- TEMA PRINCIPAL - MODO CLARO -->
+    <style name="Theme.MusicPlayerMVP" parent="Base.Theme.MusicPlayerMVP">
+        <!-- FUNDO CLARO -->
+        <item name="android:windowBackground">@color/background_light</item>
+        <item name="android:colorBackground">@color/background_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- ✅ CORREÇÃO: TEXTOS ESCUROS para modo claro -->
+        <item name="android:textColorPrimary">@color/on_surface_light</item>
+        <item name="android:textColorSecondary">@color/on_surface_variant_light</item>
+
+        <!-- ✅ CORREÇÃO: MENU COM TEXTO ESCURO no modo claro -->
+        <item name="actionMenuTextColor">@color/on_surface_light</item>
+        <item name="android:actionMenuTextColor">@color/on_surface_light</item>
+
+        <!-- ✅ CORREÇÃO: Popup menu com fundo claro e texto escuro -->
+        <item name="popupMenuStyle">@style/PopupMenuLight</item>
+
+        <!-- ✅ APLICAR ESTILO AOS DIÁLOGOS para modo claro -->
+        <item name="android:dialogTheme">@style/MyDialogThemeLight</item>
+        <item name="android:alertDialogTheme">@style/MyAlertDialogThemeLight</item>
+        <item name="materialAlertDialogTheme">@style/MyAlertDialogThemeLight</item>
+
+        <!-- Toolbar -->
+        <item name="android:statusBarColor">@color/background_light</item>
+    </style>
+
+    <!-- ✅ ESTILO PARA MENU POPUP CLARO (fundo claro + texto escuro) -->
+    <style name="PopupMenuLight" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:background">@color/surface_light</item>
+        <item name="android:textColor">@color/on_surface_light</item>
+        <item name="android:popupBackground">@color/surface_light</item>
+        <item name="android:itemBackground">@color/surface_light</item>
+    </style>
+
+    <!-- ✅ ESTILOS DE DIÁLOGO PARA MODO CLARO -->
+    <style name="MyDialogThemeLight" parent="ThemeOverlay.Material3.Dialog">
+        <item name="android:windowBackground">@color/surface_light</item>
+        <item name="android:background">@color/surface_light</item>
+        <item name="android:textColorPrimary">@color/on_surface_light</item>
+        <item name="android:textColor">@color/on_surface_light</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+    </style>
+
+    <style name="MyAlertDialogThemeLight" parent="ThemeOverlay.Material3.Dialog.Alert">
+        <item name="android:windowBackground">@color/surface_light</item>
+        <item name="android:background">@color/surface_light</item>
+        <item name="android:textColorPrimary">@color/on_surface_light</item>
+        <item name="android:textColor">@color/on_surface_light</item>
+        <item name="buttonBarButtonStyle">@style/MyDialogButtonStyleLight</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+    </style>
+
+    <style name="MyDialogButtonStyleLight" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
 </resources>

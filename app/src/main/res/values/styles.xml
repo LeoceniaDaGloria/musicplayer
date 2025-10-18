@@ -1,15 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tema base para o aplicativo -->
-    <style name="Theme.MusicPlayerMVP" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Cor de fundo principal (baseado no layout) -->
-        <item name="android:windowBackground">@android:color/black</item>
-        <item name="android:colorBackground">#121212</item>
-        <!-- Toolbar -->
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">false</item>
-        <!-- Texto e ícones -->
-        <item name="android:textColorPrimary">#FFFFFF</item>
-        <item name="android:textColorSecondary">#AAAAAA</item>
+
+
+    <!-- ✅ ESTILOS DE DIÁLOGO -->
+    <style name="MyDialogTheme" parent="ThemeOverlay.Material3.Dialog">
+        <item name="android:windowBackground">@color/surface_dark</item>
+        <item name="android:background">@color/surface_dark</item>
+        <item name="android:textColorPrimary">@color/on_surface_dark</item>
+        <item name="android:textColor">@color/on_surface_dark</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+    </style>
+
+    <style name="MyAlertDialogTheme" parent="ThemeOverlay.Material3.Dialog.Alert">
+        <item name="android:windowBackground">@color/surface_dark</item>
+        <item name="android:background">@color/surface_dark</item>
+        <item name="android:textColorPrimary">@color/on_surface_dark</item>
+        <item name="android:textColor">@color/on_surface_dark</item>
+        <item name="buttonBarButtonStyle">@style/MyDialogButtonStyle</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+    </style>
+n
+    <style name="MyDialogButtonStyle" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="MyCustomDialog" parent="ThemeOverlay.Material3.Dialog">
+        <item name="android:windowBackground">@color/surface_dark</item>
+        <item name="android:background">@color/surface_dark</item>
+        <item name="android:textColorPrimary">@color/on_surface_dark</item>
+        <item name="android:textColor">@color/on_surface_dark</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+    </style>
+
+    <style name="DetailItem" parent="android:Widget">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">8dp</item>
     </style>
 </resources>

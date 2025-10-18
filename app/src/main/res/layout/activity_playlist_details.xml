@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:title="@string/app_name"
+        app:title="Music Player"
+        android:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/ic_chevron_right"/>
+
+    <!-- Controles da Playlist -->
+    <LinearLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="?android:attr/colorBackground">
+
+        <Button
+            android:id="@+id/btn_play_playlist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Reproduzir"
+            android:layout_marginEnd="8dp"
+            android:drawableStart="@drawable/ic_play_arrow"
+            android:enabled="false"
+            android:textColor="?android:attr/textColorPrimary"
+            app:tint="?android:attr/textColorPrimary" />
+
+        <Button
+            android:id="@+id/btn_shuffle_playlist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Aleatoria"
+            android:layout_marginStart="8dp"
+            android:drawableStart="@drawable/ic_shuffle"
+            android:enabled="false"
+            android:textColor="?android:attr/textColorPrimary"
+            app:tint="?android:attr/textColorPrimary" />
+
+    </LinearLayout>
+    <!-- ✅ CONTAINER PRINCIPAL COM FRAMELAYOUT -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Lista de músicas (OCUPA TODO O ESPAÇO) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_songs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:background="?android:attr/colorBackground" />
+
+        <!-- Estado vazio (SOBREPOSTO) -->
+        <TextView
+            android:id="@+id/empty_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Playlist vazia\n\nToque no botão ➕ para adicionar músicas"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="?android:attr/textColorSecondary"
+            android:visibility="gone" />
+
+        <!-- ✅ FAB AGORA FICA POR CIMA DE TUDO -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add_songs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_add_music"
+            android:contentDescription="Adicionar músicas à playlist"
+            app:backgroundTint="?attr/colorPrimary"
+            app:tint="@android:color/white"
+            app:elevation="12dp" />
+
+    </FrameLayout>
+
+</LinearLayout>

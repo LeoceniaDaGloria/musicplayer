@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_song_details"
+        android:title="Detalhes da Música" />
+
+    <item
+        android:id="@+id/action_move_to"
+        android:title="Adicionar na Playlist" />
+
+    <item
+        android:id="@+id/action_change_cover"
+        android:title="Mudar Capa" />
+
+    <item
+        android:id="@+id/action_rename_song"
+        android:title="Renomear" />
+
+    <item
+        android:id="@+id/action_delete_song"
+        android:title="Deletar Música" />
+</menu>
