@@ -90,7 +90,7 @@ public class MusicRepository {
     }
 
     /**
-     * Verifica se música está na playlist (com objeto Song)
+     * Verifica se musica está na playlist (com objeto Song)
      */
     public boolean isSongInPlaylist(long playlistId, Song song) {
         try {
