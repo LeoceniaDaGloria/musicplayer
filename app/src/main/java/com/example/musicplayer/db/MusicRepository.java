@@ -50,12 +50,9 @@ public class MusicRepository {
         Log.d(TAG, "Repository initialized");
     }
 
-    // ============================================================
-// ✅ APENAS ESTES 4 MÉTODOS FALTAM - ADICIONE NO FINAL DA CLASSE
-// ============================================================
 
     /**
-     * ✅ FALTA: Adiciona música à playlist (versão com objeto Song)
+     *  Adiciona música à playlist (versão com objeto Song)
      */
     public void addSongToPlaylist(long playlistId, Song song) {
         Executors.newSingleThreadExecutor().execute(() -> {
@@ -93,7 +90,7 @@ public class MusicRepository {
     }
 
     /**
-     * ✅ FALTA: Verifica se música está na playlist (com objeto Song)
+     * Verifica se música está na playlist (com objeto Song)
      */
     public boolean isSongInPlaylist(long playlistId, Song song) {
         try {
@@ -296,7 +293,7 @@ public class MusicRepository {
     }
 
     /**
-     * NOVO: Carrega músicas da pasta raw
+     * Carrega músicas da pasta raw
      */
     private void loadSongsFromRaw(Context context) {
         Log.d(TAG, "Loading songs from raw folder...");
@@ -440,7 +437,7 @@ public class MusicRepository {
     }
 
     /**
-     * CORREÇÃO: Método para pré-extrair metadados COM DEBUG
+     *  Método para pré-extrair metadados COM DEBUG
      */
     private void extractMetadataForSongs(List<Song> songs, Context context) {
         new Thread(() -> {
@@ -562,7 +559,7 @@ public class MusicRepository {
     }
 
     /**
-     * ADICIONADO: Método síncrono para debug
+     * Método síncrono para debug
      */
     public List<Playlist> getAllPlaylistsSync() {
         try {
@@ -604,7 +601,7 @@ public class MusicRepository {
     }
 
     /**
-     * ✅ NOVO: Método síncrono para contar músicas na playlist
+     * Método síncrono para contar músicas na playlist
      */
     public int getSongCountForPlaylistSync(long playlistId) {
         try {
@@ -878,7 +875,7 @@ public class MusicRepository {
     }
 
     /**
-     * NOVO: Método para forçar o carregamento apenas do raw
+     *  Método para forçar o carregamento apenas do raw
      */
     public void loadOnlyRawSongs() {
         loadSongsFromRaw(context);
