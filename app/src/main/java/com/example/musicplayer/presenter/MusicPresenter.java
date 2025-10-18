@@ -72,10 +72,10 @@ public class MusicPresenter {
 
     private final ExecutorService executor = Executors.newFixedThreadPool(2);
 
-    // ✅ CORREÇÃO: Listener para operações (diálogos, etc.)
+    // Listener para operações (diálogos, etc.)
     private OnMusicOperationListener operationListener;
 
-    // ✅ CORREÇÃO: Lista de listeners para múltiplas activities
+    // Lista de listeners para múltiplas activities
     private List<OnSongChangeListener> songChangeListeners = new ArrayList<>();
 
     private final Runnable updateProgressAction = new Runnable() {
@@ -98,7 +98,7 @@ public class MusicPresenter {
             isBound = true;
             musicService.setPresenter(MusicPresenter.this);
 
-            // ✅ RESETAR controles
+            // RESETAR controles
             isHandlingCompletion = false;
             isHandlingNavigation = false;
 
@@ -106,7 +106,7 @@ public class MusicPresenter {
             updatePlayPauseState();
 
             if (musicService.getCurrentSong() != null) {
-                // ✅ CORREÇÃO: SINCRONIZAR com estado REAL do Service
+                // SINCRONIZAR com estado REAL do Service
                 syncWithServiceState();
 
                 Song currentSong = musicService.getCurrentSong();
