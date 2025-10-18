@@ -146,11 +146,11 @@ public class MusicPresenter {
     }
 
     // ============================================================
-    // ✅ CORREÇÃO: SISTEMA DE LISTENERS PARA MÚLTIPLAS ACTIVITIES
+    // SISTEMA DE LISTENERS PARA MÚLTIPLAS ACTIVITIES
     // ============================================================
 
     /**
-     * ✅ INTERFACE para listeners de mudança de música
+     *  INTERFACE para listeners de mudança de música
      */
     public interface OnSongChangeListener {
         void onSongChanged(Song song);
@@ -158,7 +158,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ REGISTRAR listener para receber atualizações de música
+     *  REGISTRAR listener para receber atualizações de música
      */
     public void registerSongChangeListener(OnSongChangeListener listener) {
         if (!songChangeListeners.contains(listener)) {
@@ -192,7 +192,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ NOTIFICAR TODOS OS LISTENERS sobre mudança de estado
+     * NOTIFICAR TODOS OS LISTENERS sobre mudança de estado
      */
     private void notifyAllPlaybackStateListeners(boolean isPlaying) {
         for (OnSongChangeListener listener : new ArrayList<>(songChangeListeners)) {
@@ -205,7 +205,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ FORÇAR SINCRONIZAÇÃO COMPLETA EM TODAS AS ACTIVITIES
+     *  FORÇAR SINCRONIZAÇÃO COMPLETA EM TODAS AS ACTIVITIES
      */
     public void forceFullSync() {
         if (musicService != null && musicService.getCurrentSong() != null) {
@@ -445,7 +445,7 @@ public class MusicPresenter {
 
         Log.d(TAG, "Solicitando reprodução: " + song.getTitle() + " - " + song.getArtist());
 
-        // ✅ CORREÇÃO: Extrair metadados antes de reproduzir
+        //  Extrair metadados antes de reproduzir
         extractAndUpdateMusicMetadata(song);
 
         if (musicService != null && isBound) {
@@ -586,7 +586,7 @@ public class MusicPresenter {
     }
 
     // ============================================================
-    // MÉTODOS AUXILIARES - ATUALIZADOS COM TRANSIÇÃO AUTOMÁTICA
+    // MÉTODOS AUXILIARES COM TRANSIÇÃO AUTOMÁTICA
     // ============================================================
 
     private int findSongIndex(Song song) {
@@ -672,13 +672,13 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ CORREÇÃO: Sincroniza estado do Presenter com estado REAL do Service
+     * Sincroniza estado do Presenter com estado REAL do Service
      */
     private void syncWithServiceState() {
         if (musicService != null && musicService.getCurrentSong() != null) {
             Song realCurrentSong = musicService.getCurrentSong();
 
-            // ✅ BUSCAR índice REAL no nosso allSongs
+            // BUSCAR índice REAL no nosso allSongs
             int realIndex = findSongIndex(realCurrentSong);
 
             if (realIndex != currentSongIndex) {
@@ -686,7 +686,7 @@ public class MusicPresenter {
                 currentSongIndex = realIndex;
             }
 
-            // ✅ ATUALIZAR UI com dados REAIS
+            //  ATUALIZAR UI com dados REAIS
             updateSongInfoWithCover(realCurrentSong);
 
             Log.d(TAG, "✅ Estado sincronizado: " + realCurrentSong.getTitle() +
@@ -857,7 +857,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ CORREÇÃO: Carrega apenas músicas da playlist específica - VERSÃO MELHORADA
+     *  Carrega apenas músicas da playlist específica - VERSÃO MELHORADA
      */
     public void loadPlaylistSongs(Playlist playlist) {
         Log.d(TAG, "=== LOAD PLAYLIST SONGS ===");
@@ -1086,26 +1086,26 @@ public class MusicPresenter {
     public void onSongChanged(Song song) {
         Log.d(TAG, "🔄 onSongChanged: " + (song != null ? song.getTitle() + " - " + song.getArtist() : "null"));
 
-        // ✅ SINCRONIZAR PRIMEIRO com Service
+        //  SINCRONIZAR PRIMEIRO com Service
         syncWithServiceState();
 
-        // ✅ DEBUG: Verificar informações
+        //  DEBUG: Verificar informações
         debugSongInfo(song);
 
-        // ✅ ATUALIZAR UI
+        // ATUALIZAR UI
         if (view != null && song != null) {
             view.updateSongInfo(song.getTitle(), song.getArtist());
             loadAlbumArtForSong(song); // ✅ Carregar capa REAL
         }
 
-        // ✅ NOTIFICAR TODOS OS LISTENERS
+        //  NOTIFICAR TODOS OS LISTENERS
         notifyAllSongChangeListeners(song);
 
-        Log.d(TAG, "✅ Música alterada e sincronizada: " + song.getTitle());
+        Log.d(TAG, " Musica alterada e sincronizada: " + song.getTitle());
     }
 
     /**
-     * ✅ CORREÇÃO: Método para notificar mudança de estado de reprodução
+     * Metodo para notificar mudança de estado de reprodução
      */
     public void onPlaybackStateChanged(boolean isPlaying) {
         runOnUiThread(() -> {
@@ -1119,7 +1119,7 @@ public class MusicPresenter {
         });
     }
     /**
-     * ✅ MÉTODO MELHORADO: Extrai metadados completos do arquivo de música
+     * Extrai metadados completos do arquivo de música
      */
     private void extractAndUpdateMusicMetadata(Song song) {
         if (song == null || song.getPath() == null) return;
@@ -1175,7 +1175,7 @@ public class MusicPresenter {
         }
     }
     /**
-     * ✅ MÉTODO AUXILIAR: Tenta atualizar qualquer MainActivity ativa
+     * Tenta atualizar qualquer MainActivity ativa
      */
     private void updateAnyActiveMainActivity(Song song) {
         try {
@@ -1754,7 +1754,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ DEBUG: Verificar adição à playlist
+     *  DEBUG: Verificar adição à playlist
      */
     public void debugCheckPlaylistAddition(long playlistId, long songId) {
         Log.d(TAG, "=== DEBUG ADIÇÃO À PLAYLIST ===");
@@ -1786,7 +1786,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ VERIFICA SE UMA MÚSICA JÁ ESTÁ NA PLAYLIST
+     *  VERIFICA SE UMA MÚSICA JÁ ESTÁ NA PLAYLIST
      */
     public void checkIfSongInPlaylist(long playlistId, long songId, OnPlaylistCheckListener listener) {
         new Thread(() -> {
@@ -1820,7 +1820,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ INTERFACE PARA VERIFICAÇÃO
+     *  INTERFACE PARA VERIFICAÇÃO
      */
     public interface OnPlaylistCheckListener {
         void onAlreadyInPlaylist();
@@ -1829,7 +1829,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ CORREÇÃO: Obter todas as playlists de forma síncrona
+     *  Obter todas as playlists de forma síncrona
      */
     public List<Playlist> getAllPlaylistsSync() {
         try {
@@ -1841,11 +1841,11 @@ public class MusicPresenter {
     }
 
     // ============================================================
-    // ✅ MÉTODOS PARA PLAYERACTIVITY
+    //  MÉTODOS PARA PLAYERACTIVITY
     // ============================================================
 
     /**
-     * ✅ MÉTODO CORRIGIDO: Reproduz uma playlist completa
+     *  METODO CORRIGIDO: Reproduz uma playlist completa
      */
     public void playPlaylist(List<Song> playlist, int startPosition) {
         if (playlist == null || playlist.isEmpty()) {
@@ -1855,7 +1855,7 @@ public class MusicPresenter {
 
         Log.d(TAG, "🎵 Reproduzindo playlist: " + playlist.size() + " músicas, posição: " + startPosition);
 
-        // ✅ ATUALIZAR LISTA INTERNA
+        //  ATUALIZAR LISTA INTERNA
         this.allSongs = new ArrayList<>(playlist);
         this.currentSongIndex = startPosition;
 
@@ -1864,7 +1864,7 @@ public class MusicPresenter {
             currentSongIndex = 0;
         }
 
-        // ✅ REPRODUZIR VIA SERVICE
+        //  REPRODUZIR VIA SERVICE
         if (musicService != null && isBound) {
             musicService.setPlaylist(allSongs);
             musicService.setCurrentSongIndex(currentSongIndex);
@@ -1872,13 +1872,13 @@ public class MusicPresenter {
             Song startSong = allSongs.get(currentSongIndex);
             musicService.playSong(startSong);
 
-            // ✅ ATUALIZAR UI
+            //  ATUALIZAR UI
             updateSongInfoWithCover(startSong);
             view.updatePlayPauseIcon(true);
 
             Log.d(TAG, "✅ Playlist iniciada no service: " + startSong.getTitle());
         } else {
-            // ✅ FALLBACK: REPRODUZIR DIRETAMENTE
+            //  FALLBACK: REPRODUZIR DIRETAMENTE
             Log.w(TAG, "Service não disponível, reproduzindo diretamente");
             if (currentSongIndex < playlist.size()) {
                 Song startSong = playlist.get(currentSongIndex);
@@ -1888,7 +1888,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ MÉTODO CORRIGIDO: Busca música por ID (SÍNCRONO)
+     *  Busca música por ID (SÍNCRONO)
      */
     public Song getSongById(long songId) {
         try {
@@ -1916,7 +1916,7 @@ public class MusicPresenter {
     // ============================================================
 
     /**
-     * ✅ MÉTODO PRINCIPAL: Carrega capa real para uma música específica
+     *  MÉTODO PRINCIPAL: Carrega capa real para uma música específica
      */
     public void loadAlbumArtForSong(Song song) {
         if (song == null || view == null) {
@@ -2007,30 +2007,30 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ CARREGA CAPA PERSONALIZADA (se existir)
+     *  CARREGA CAPA PERSONALIZADA (se existir)
      */
     private void loadCustomAlbumArt(Song song) {
         try {
             String customCoverPath = getSongCoverPath(song.getId());
 
             if (customCoverPath != null) {
-                // ✅ CAPA PERSONALIZADA ENCONTRADA
+                //  CAPA PERSONALIZADA ENCONTRADA
                 File coverFile = new File(customCoverPath);
                 if (coverFile.exists()) {
                     Bitmap customBitmap = BitmapFactory.decodeFile(customCoverPath);
                     if (customBitmap != null) {
-                        Log.d(TAG, "✅ Capa personalizada carregada: " + customCoverPath);
+                        Log.d(TAG, " Capa personalizada carregada: " + customCoverPath);
                         view.updateAlbumArt(customBitmap);
                         return;
                     }
                 } else {
-                    Log.w(TAG, "⚠️ Arquivo de capa personalizada não existe: " + customCoverPath);
+                    Log.w(TAG, " Arquivo de capa personalizada não existe: " + customCoverPath);
                     // Remove referência inválida
                     removeSongCover(song.getId());
                 }
             }
 
-            // ✅ NENHUMA CAPA ENCONTRADA - USAR PLACEHOLDER
+            //  NENHUMA CAPA ENCONTRADA - USAR PLACEHOLDER
             Log.d(TAG, "🎨 Usando placeholder para: " + song.getTitle());
             view.updateAlbumArt((Bitmap) null); // Isso deve carregar o placeholder na View
 
@@ -2041,7 +2041,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ MÉTODO SOBRECARREGADO: Carrega capa a partir do URI
+     *  METODO SOBRECARREGADO: Carrega capa a partir do URI
      */
     public void loadAlbumArtFromUri(String albumArtUri) {
         if (albumArtUri == null || albumArtUri.isEmpty()) {
@@ -2080,7 +2080,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ CARREGA BITMAP A PARTIR DE URI DO ANDROID
+     *  CARREGA BITMAP A PARTIR DE URI DO ANDROID
      */
     private Bitmap loadBitmapFromUri(Uri uri) {
         try {
@@ -2092,9 +2092,6 @@ public class MusicPresenter {
         }
     }
 
-    /**
-     * Atualiza informações da música incluindo capa real
-     */
 
     /**
      * Atualiza informações da música incluindo capa real
@@ -2121,7 +2118,7 @@ public class MusicPresenter {
         }
     }
     /**
-     * ✅ MÉTODO DE DEBUG: Verificar informações antes de atualizar a view
+     *  METODO DE DEBUG: Verificar informações antes de atualizar a view
      */
     private void debugSongInfo(Song song) {
         if (song != null) {
@@ -2136,7 +2133,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ MÉTODO NOVO: Busca música por ID (ASSÍNCRONO com callback)
+     *  METODO NOVO: Busca música por ID (ASSÍNCRONO com callback)
      */
     public void getSongByIdAsync(long songId, OnSongLoadedListener listener) {
         new Thread(() -> {
@@ -2163,7 +2160,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ INTERFACE para callback de carregamento de música
+     *  INTERFACE para callback de carregamento de música
      */
     public interface OnSongLoadedListener {
         void onSongLoaded(Song song);
@@ -2171,7 +2168,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ MÉTODO MELHORADO: Carrega múltiplas músicas por IDs
+     *  METODO MELHORADO: Carrega múltiplas músicas por IDs
      */
     public void loadSongsByIds(List<Long> songIds, OnSongsLoadedListener listener) {
         if (songIds == null || songIds.isEmpty()) {
@@ -2213,7 +2210,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ INTERFACE para callback de múltiplas músicas
+     *  INTERFACE para callback de múltiplas músicas
      */
     public interface OnSongsLoadedListener {
         void onSongsLoaded(List<Song> songs);
@@ -2240,7 +2237,7 @@ public class MusicPresenter {
             }
         }
 
-        // ✅ LIMPAR LISTA DE LISTENERS
+        //  LIMPAR LISTA DE LISTENERS
         songChangeListeners.clear();
         Log.d(TAG, "Listeners limpos: " + songChangeListeners.size());
     }
@@ -2294,7 +2291,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ MÉTODO CRÍTICO: Expor LiveData para observação
+     * METODO PARA Expor LiveData para observação
      */
     public LiveData<List<Song>> getPlaylistSongsLiveData(long playlistId) {
         Log.d(TAG, "🎵 EXPONDO LiveData para playlist ID: " + playlistId);
@@ -2302,7 +2299,7 @@ public class MusicPresenter {
     }
 
     /**
-     * ✅ MÉTODO ALTERNATIVO: Para observar diretamente
+     *  METODO ALTERNATIVO: Para observar diretamente
      */
     public void observePlaylistSongs(long playlistId, androidx.lifecycle.Observer<List<Song>> observer) {
         Log.d(TAG, "🎵 CONFIGURANDO OBSERVAÇÃO DIRETA para playlist ID: " + playlistId);
