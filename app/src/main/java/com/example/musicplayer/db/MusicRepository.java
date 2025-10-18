@@ -861,7 +861,7 @@ public class MusicRepository {
     }
 
     /**
-     * Remove todas as músicas de uma playlist
+     * Remove todas as musicas de uma playlist
      */
     public void removeAllSongsFromPlaylist(long playlistId) {
         Executors.newSingleThreadExecutor().execute(() -> {
